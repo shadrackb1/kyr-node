@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <main style="padding-top: 100px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 800px;">
+
+      <!-- Header -->
+      <div class="reveal" style="margin-bottom: 32px;">
+        <h1 style="font-size: 2.2rem; margin-bottom: 8px;">Rights Library</h1>
+        <p class="text-muted" style="font-size: 0.9rem;"><%= total %> articles on your legal rights</p>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap reveal" style="margin-bottom: 24px;">
+        <span class="icon">🔍</span>
+        <form action="/library" method="GET">
+          <input type="text" name="q" placeholder="Search your rights..." value="<%= query %>">
+          <% if (activeTopic !== 'ALL') { %>
+            <input type="hidden" name="topic" value="<%= activeTopic.toLowerCase() %>">
+          <% } %>
+        </form>
+      </div>
+
+      <!-- Topic filters -->
+      <div class="reveal" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;">
+        <% var topics = ['all', 'police', 'tenants', 'labor', 'business']; %>
+        <% topics.forEach(function(t) { %>
+          <a href="/library?topic=<%= t %><%= query ? '&q=' + encodeURIComponent(query) : '' %>"
+             class="pill <%= activeTopic === t.toUpperCase() ? 'active' : '' %>">
+            <%= t.toUpperCase() %>
+          </a>
+        <% }); %>
+      </div>
+
+      <!-- Results count -->
+      <p class="text-dim reveal" style="font-size: 0.8rem; margin-bottom: 16px;">
+        <%= articles.length %> result<%= articles.length !== 1 ? 's' : '' %> found
+      </p>
+
+      <!-- Results -->
+      <div>
+        <% if (articles.length === 0) { %>
+          <div class="card reveal" style="text-align: center; padding: 60px 40px;">
+            <div style="font-size: 2rem; margin-bottom: 16px;">🔍</div>
+            <h3 style="margin-bottom: 8px;">No results found</h3>
+            <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 24px;">Try different keywords or clear your filters.</p>
+            <a href="/library" class="btn btn-outline btn-sm">Clear Filters</a>
+          </div>
+        <% } else { %>
+          <% articles.forEach(function(article, i) { %>
+            <a href="/article/<%= article.id %>" class="article-row reveal" style="margin-bottom: 8px; animation-delay: <%= i * 0.05 %>s;">
+              <div class="row-icon">
+                <%= article.tag === 'POLICE' ? '🚨' : article.tag === 'LABOR' ? '💼' : article.tag === 'TENANTS' ? '🏠' : '💰' %>
+              </div>
+              <div class="row-body">
+                <span class="tag tag-<%= article.tag.toLowerCase() %>" style="margin-bottom: 6px;"><%= article.tag %></span>
+                <h4><%= article.title %></h4>
+                <p><%= article.summary %></p>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          <% }); %>
+        <% } %>
+      </div>
+
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge animate-in">
+        ⚡ Know Your Rights KE
+      </div>
+
+      <h1 class="animate-in animate-delay-1">
+        Justice in<br><span class="highlight">your pocket.</span>
+      </h1>
+
+      <p class="animate-in animate-delay-2">
+        Kenyan law explained in plain language. No jargon, no confusion — just the rights you need to know, when you need them.
+      </p>
+
+      <div class="hero-actions animate-in animate-delay-3">
+        <a href="/library" class="btn btn-primary">
+          Browse Library →
+        </a>
+        <a href="/ask" class="btn btn-outline">
+          Ask a Question
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="container">
+      <div class="stats-bar reveal">
+        <div class="stat-item">
+          <div class="stat-value">16+</div>
+          <div class="stat-label">Legal Guides</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Topic Areas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">8+</div>
+          <div class="stat-label">FAQs Answered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Free Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">How It Works</h2>
+      <div class="grid-3">
+        <div class="card reveal" style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🔍</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Browse</h3>
+          <p class="text-muted" style="font-size: 0.9rem;">Explore guides organized by topic — police, tenants, labor, business.</p>
+        </div>
+        <div class="card reveal" style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 16px;">📖</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Learn</h3>
+          <p class="text-muted" style="font-size: 0.9rem;">Each article breaks down the law in plain language with actionable tips.</p>
+        </div>
+        <div class="card reveal" style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 16px;">💬</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Ask</h3>
+          <p class="text-muted" style="font-size: 0.9rem;">Can't find your answer? Submit a question and we'll get you answers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ TOPICS ═══ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Topics We Cover</h2>
+      <div class="grid-2">
+        <a href="/library?topic=police" class="card reveal flex-between" style="cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--red-dim); display: flex; align-items: center; justify-content: center; font-size: 20px;">🚨</div>
+            <div>
+              <h3 style="font-size: 1rem; margin-bottom: 2px;">Police Encounters</h3>
+              <p class="text-muted" style="font-size: 0.8rem;">Arrests, searches, roadblocks — know your rights.</p>
+            </div>
+          </div>
+          <span class="arrow" style="color: var(--text-dim);">→</span>
+        </a>
+
+        <a href="/library?topic=tenants" class="card reveal flex-between" style="cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--green-dim); display: flex; align-items: center; justify-content: center; font-size: 20px;">🏠</div>
+            <div>
+              <h3 style="font-size: 1rem; margin-bottom: 2px;">Housing & Tenants</h3>
+              <p class="text-muted" style="font-size: 0.8rem;">Eviction, deposits, rent increases.</p>
+            </div>
+          </div>
+          <span class="arrow" style="color: var(--text-dim);">→</span>
+        </a>
+
+        <a href="/library?topic=labor" class="card reveal flex-between" style="cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--amber-dim); display: flex; align-items: center; justify-content: center; font-size: 20px;">💼</div>
+            <div>
+              <h3 style="font-size: 1rem; margin-bottom: 2px;">Employment & Labor</h3>
+              <p class="text-muted" style="font-size: 0.8rem;">Wages, dismissal, leave, contracts.</p>
+            </div>
+          </div>
+          <span class="arrow" style="color: var(--text-dim);">→</span>
+        </a>
+
+        <a href="/library?topic=business" class="card reveal flex-between" style="cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(59,130,246,0.12); display: flex; align-items: center; justify-content: center; font-size: 20px;">💰</div>
+            <div>
+              <h3 style="font-size: 1rem; margin-bottom: 2px;">Consumer & Business</h3>
+              <p class="text-muted" style="font-size: 0.8rem;">Refunds, licensing, contracts, debt.</p>
+            </div>
+          </div>
+          <span class="arrow" style="color: var(--text-dim);">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ FEATURED ARTICLES ═══ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Featured Guides</h2>
+      <div class="grid-4">
+        <% articles.forEach(function(article, i) { %>
+          <a href="/article/<%= article.id %>" class="card article-card reveal">
+            <div class="thumb">
+              <img src="<%= article.imageUrl %>" alt="<%= article.title %>" loading="lazy">
+            </div>
+            <div class="tag-row">
+              <span class="tag tag-<%= article.tag.toLowerCase() %>"><%= article.tag %></span>
+            </div>
+            <h3><%= article.title %></h3>
+            <p><%= article.summary %></p>
+            <span class="read-more">Read guide →</span>
+          </a>
+        <% }); %>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="/library" class="btn btn-outline reveal">View All Guides →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ PREVIEW ═══ -->
+  <section class="section">
+    <div class="container-narrow">
+      <h2 class="section-title reveal">Common Questions</h2>
+      <div class="reveal">
+        <% faqs.forEach(function(faq) { %>
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+              <span><%= faq.q %></span>
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-a">
+              <p><%= faq.a %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="/ask" class="btn btn-outline btn-sm reveal">View All FAQs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="card card-glass reveal" style="padding: 80px 40px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(400px circle at 50% 50%, var(--amber-glow), transparent 70%);"></div>
+        <div style="position: relative; z-index: 1;">
+          <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Still have questions?</h2>
+          <p class="text-muted" style="max-width: 400px; margin: 0 auto 28px; font-size: 0.95rem;">
+            No legal background required. Describe your situation and we'll point you to the facts.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="/ask" class="btn btn-primary">Ask a Question</a>
+            <a href="/library" class="btn btn-outline">Browse Library</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

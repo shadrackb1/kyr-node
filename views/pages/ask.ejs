@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <main>
+    <div class="container">
+      <div class="ask-layout">
+
+        <!-- Form / Success -->
+        <div>
+          <div class="reveal" style="margin-bottom: 32px;">
+            <h1 style="font-size: 2.2rem; margin-bottom: 8px;">Ask a Question</h1>
+            <p class="text-muted" style="font-size: 0.9rem;">
+              No legal knowledge needed. Describe your situation and we'll point you to the facts.
+            </p>
+          </div>
+
+          <% if (submitted) { %>
+            <div class="card success-box animate-in">
+              <div class="icon-circle">✓</div>
+              <h3>Question Submitted!</h3>
+              <p>Thank you. Our team will review your question and publish a response soon.</p>
+              <a href="/ask" class="btn btn-primary" style="margin-top: 24px;">Ask Another</a>
+            </div>
+          <% } else { %>
+            <form method="POST" action="/ask" class="card reveal">
+              <div class="form-group">
+                <label for="question">What is your question? *</label>
+                <textarea id="question" name="question" rows="5" required
+                  placeholder="Describe your situation in detail..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="topic">Topic (Optional)</label>
+                <select id="topic" name="topic">
+                  <option value="">Choose category</option>
+                  <option value="LABOR">Employment & Labor</option>
+                  <option value="TENANTS">Housing & Tenant</option>
+                  <option value="POLICE">Police Encounters</option>
+                  <option value="BUSINESS">Consumer & Business</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email (Optional)</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 8px;">
+                Send Question →
+              </button>
+            </form>
+          <% } %>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+          <h3 style="font-size: 1rem; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);" class="reveal">
+            Recently Answered
+          </h3>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;" class="reveal">
+            <% var recent = [
+              { id: '3', tag: 'TENANTS', title: 'Understanding Eviction Notices' },
+              { id: '2', tag: 'LABOR', title: 'Unfair Dismissal Basics' },
+              { id: '6', tag: 'POLICE', title: 'Bail & Bond in Kenya' },
+              { id: '12', tag: 'BUSINESS', title: 'Debt Collection Rights' }
+            ]; %>
+            <% recent.forEach(function(item) { %>
+              <a href="/article/<%= item.id %>" class="card" style="padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <div>
+                  <span class="tag tag-<%= item.tag.toLowerCase() %>" style="margin-bottom: 6px;"><%= item.tag %></span>
+                  <h4 style="font-size: 0.85rem; margin-top: 6px;"><%= item.title %></h4>
+                </div>
+                <span class="arrow" style="flex-shrink: 0;">→</span>
+              </a>
+            <% }); %>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FAQs -->
+      <div style="border-top: 1px solid var(--border); padding-top: 48px; padding-bottom: 80px;" id="faq">
+        <h2 style="font-size: 1.5rem; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;" class="reveal">
+          ❓ Common Questions
+        </h2>
+        <div style="max-width: 720px;">
+          <% faqs.forEach(function(faq) { %>
+            <div class="faq-item reveal">
+              <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span><%= faq.q %></span>
+                <span class="chevron">▼</span>
+              </button>
+              <div class="faq-a">
+                <p><%= faq.a %></p>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>
